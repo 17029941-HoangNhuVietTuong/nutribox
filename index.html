@@ -190,20 +190,47 @@
   <script>
     // Dữ liệu mẫu: thay bằng API thật hoặc JSON
     const products = [
-      {id:1,title:'Bột protein hạt dẻ',price:'299,000₫',tag:'Protein',desc:'Protein thực vật, giàu chất xơ.'},
-      {id:2,title:'Snack hạt mix',price:'89,000₫',tag:'Snack',desc:'Hỗn hợp hạt rang muối nhẹ.'},
-      {id:3,title:'Sữa hạt không đường',price:'129,000₫',tag:'Sữa',desc:'Không đường, giàu canxi.'}
+      {
+        id:1,
+        title:'Cơm gạo lứt cá hồi',
+        price:'299,000₫',
+        desc:'Bổ sung đạm, omega-3, chất xơ và vitamin.',
+        image: './img/products/com-ca-hoi-trung-cuon.jpg'
+      },
+      {
+        id:2,title:'Cơm gà nướng rau xanh',
+        price:'89,000₫',
+        desc:'Giàu đạm, chất xơ, vitamin và khoáng.',
+        image: './img/products/com-ga-nuong-rau-xanh.jpg'
+      },
+      {
+        id:3,
+        title:'Salad cá hồi bơ trứng cuộn',
+        price:'129,000₫',
+        desc:'Giàu đạm, chất béo tốt, vitamin và chất xơ.',
+        image: './img/products/com-gao-lut-ca-hoi.jpg'
+      }
     ];
 
     const recipes = [
-      {id:1,title:'Salad ức gà salad sốt mè rang',time:'15 phút'},
-      {id:2,title:'Ức gà xào cải bắp',time:'30 phút'},
-      {id:3,title:'sữa chua mix trái cây',time:'5 phút'}
-    ];
-
-    const posts = [
-      {id:1,title:'5 mẹo ăn sáng nhanh & đủ dinh dưỡng',excerpt:'Những mẹo đơn giản để bạn ăn sáng đầy đủ ngay cả khi bận rộn.'},
-      {id:2,title:'Lợi ích của chế độ ăn thực vật',excerpt:'Tổng quan lợi ích sức khỏe và cách bắt đầu.'}
+      {
+        id:1,
+        title:'Salad ức gà salad sốt mè rang',
+        preference:'https://www.bluestone.com.vn/blogs/vao-bep/salad-uc-ga-sot-me-rang',
+        image: ''
+      },
+      {
+        id:2,
+        title:'Ức gà xào cải bắp',
+        preference:'https://toyenxin.com/blog-1/uc-ga-xao-bap-cai-vi-cb.html',
+        image: ''
+      },
+      {
+        id:3,
+        title:'sữa chua mix trái cây',
+        preference:'https://nhathuoclongchau.com.vn/bai-viet/tu-tay-lam-bua-nhe-ngon-tuyet-voi-sua-chua-hy-lap-mix-trai-cay-chuan-healthy-69102.html',
+        image: ''
+      }
     ];
 
     function renderProducts(){
@@ -212,7 +239,7 @@
       products.forEach(p=>{
         const card = document.createElement('div'); card.className='card';
         card.innerHTML = `
-          <div class="product-img">Hình ảnh</div>
+          <div class="product-img"><img src="${p.image}" alt="Sản phẩm"></div>
           <div style="font-weight:700">${p.title}</div>
           <div style="color:var(--muted);font-size:13px;margin:6px 0">${p.desc}</div>
           <div class="flex" style="justify-content:space-between">
@@ -229,7 +256,7 @@
         el.innerHTML='';
         recipes.forEach(r=>{
         const c = document.createElement('div'); c.className='card';
-        c.innerHTML = `<div style='font-weight:700'>${r.title}</div><div class="product-img">Hình ảnh</div></div><a style="display:inline-block;margin-top:10px" href="#">Đọc tiếp →</a>`;
+        c.innerHTML = `<div style='font-weight:700'>${r.title}</div><div class="product-img">Hình ảnh</div></div><a style="display:inline-block;margin-top:10px" href="${r.preference}" target="_blank">Đọc tiếp →</a>`;
         el.appendChild(c);
         })
     }
@@ -238,7 +265,7 @@
 
     function addToCart(id){
       const item = products.find(x=>x.id===id);
-      alert(item.title + ' đã được thêm (ví dụ).');
+      alert(item.title + ' đã được thêm vào giỏ hàng.');
     }
 
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -256,12 +283,5 @@
     // Khởi tạo
     renderProducts(); renderRecipes();
   </script>
-
-  <!--
-    Ghi chú:
-    - Thay hình ảnh "Hình ảnh" bằng <img src="..."> thực tế.
-    - Kết nối API cho products/recipes/posts nếu cần.
-    - Thay đổi style để giống giao diện gốc hơn (font, khoảng cách, màu sắc).
-  -->
 </body>
 </html>
