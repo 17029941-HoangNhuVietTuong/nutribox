@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nutribox</title>
+  <meta name="description" content="Trang web giới thiệu chế độ ăn healthy, công thức và sản phẩm." />
+  <style>
+    :root{--accent:#2b8aef;--muted:#666}
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;margin:0;color:#222;line-height:1.5}
+    a{color:var(--accent);text-decoration:none}
+    header{background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:10}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),#0a66d1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
+    .cta{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:56px 0}
+    .hero-left h1{font-size:40px;margin:0 0 12px}
+    .hero-left p{color:var(--muted);margin:0 0 18px}
+    .search{display:flex;gap:8px}
+    .search input{flex:1;padding:12px;border:1px solid #e6e6e6;border-radius:10px}
+    .search button{padding:12px 14px;border-radius:10px;border:0;background:var(--accent);color:#fff}
+    .hero-right{background:#f7fbff;padding:18px;border-radius:12px}
+    .hero-card{display:flex;gap:12px;align-items:center}
+    .badge{background:rgba(43,138,239,0.12);padding:8px 10px;border-radius:10px;font-weight:600;color:var(--accent)}
+
+    /* Sections */
+    section{padding:40px 0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:#fff;border:1px solid #f0f0f0;border-radius:12px;padding:16px}
+    .product-img{height:160px;background:#f0f0f0;border-radius:8px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;color:#aaa}
+    .flex{display:flex;gap:12px;align-items:center}
+
+    /* Blog */
+    .blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+
+    /* Footer */
+    footer{background:#0f1724;color:#d1d5db;padding:36px 0}
+    footer a{color:#9ca3af}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .blog-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:600px){
+      nav ul{display:none}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">NU</div>
+        <div>
+          <div style="font-weight:700">Nutribox</div>
+          <div style="font-size:12px;color:var(--muted)">Thực phẩm & Công thức</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#products">Sản phẩm</a></li>
+          <li><a href="#recipes">Công thức</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a class="cta" href="#contact">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Cá nhân hóa bữa ăn – Nâng tầm sức khỏe mỗi ngày</h1>
+        <p>Hàng trăm công thức và sản phẩm được tuyển chọn giúp bạn đạt mục tiêu sức khỏe — giảm cân, tăng cơ hoặc ăn cân bằng.</p>
+
+        <div class="search" style="margin-top:12px">
+          <input id="searchInput" placeholder="Tìm công thức, sản phẩm hoặc bài viết..." />
+          <button id="searchBtn">Tìm</button>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:18px">
+          <div class="card" style="display:flex;align-items:center;padding:10px"> 
+            <div style="font-weight:700;margin-right:8px">+12k</div>
+            <div style="color:var(--muted)">Người theo dõi</div>
+          </div>
+          <div class="card" style="display:flex;align-items:center;padding:10px"> 
+            <div style="font-weight:700;margin-right:8px">320+</div>
+            <div style="color:var(--muted)">Công thức</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card">
+          <div style="flex:1">
+            <div class="badge" style="text-align:center">KHUYẾN MÃI</div>
+            <h3 style="margin:8px 0 6px">Ăn khỏe – Nhận ưu đãi liền tay</h3>
+            <p style="margin:0;color:var(--muted)">giảm giá 20-30% cho người dùng mới với đơn đàu tiên.
+                chương trình " Combo sức khỏe " khi mua gói 5-7-14 suất ăn trong tuần sẽ giảm 10-25%
+                Thành viên thân thiết , mỗi 1.000đ tích 1 điểm , đổi quà ( ly giữ nhiệt, hộp cơm...)</p>
+          </div>
+          <div style="width:120px;text-align:center">
+            <div style="height:80px;width:80px;margin:0 auto;background:#eaf4ff;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:700">3110</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:8px">Còn lại</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="products">
+      <h2>Sản phẩm nổi bật</h2>
+      <div class="grid" id="productsGrid">
+        <!-- JS sẽ chèn sản phẩm -->
+      </div>
+    </section>
+
+    <section id="recipes">
+      <h2>Công thức phổ biến</h2>
+      <div class="grid" id="recipesGrid">
+        <!-- JS sẽ chèn công thức -->
+      </div>
+    </section>
+
+    <section id="blog">
+        <h2>Blog / Bài viết</h2>
+        <div class="card blog-content">
+        <h3>Hộp cơm dinh dưỡng chuẩn hóa cá nhân — Giải pháp thông minh cho sức khỏe hiện đại</h3>
+        <p>Trong nhịp sống hiện đại, việc duy trì chế độ ăn uống lành mạnh và đúng khoa học không hề dễ dàng. Nhiều người bận rộn không có thời gian chuẩn bị bữa ăn cân bằng, hoặc gặp khó khăn khi lựa chọn khẩu phần phù hợp với thể trạng.</p>
+        <p>Hộp cơm dinh dưỡng chuẩn hóa cá nhân ra đời như một giải pháp thông minh giúp bạn ăn ngon, đủ chất và đạt mục tiêu sức khỏe — mọi lúc, mọi nơi.</p>
+        
+        
+        <h3>Cá nhân hóa 100% với công nghệ AI</h3>
+        <ul>
+        <li>Tính toán lượng calo và tỉ lệ dinh dưỡng tối ưu cho cơ thể bạn.</li>
+        <li>Gợi ý thực đơn riêng biệt từng ngày, đảm bảo không trùng lặp và luôn đủ 4 nhóm chất.</li>
+        <li>Cập nhật khẩu phần linh hoạt nếu bạn thay đổi mục tiêu hoặc mức vận động.</li>
+        </ul>
+        <p>Nhờ ứng dụng trí tuệ nhân tạo, chúng tôi đảm bảo mỗi hộp cơm đến tay bạn đều “chuẩn hóa” theo cơ thể riêng bạn, chứ không phải theo một công thức chung cho tất cả.</p>
+        
+        
+        <h3>Thành phần và đặc điểm nổi bật</h3>
+        <ul>
+        <li>Nguồn nguyên liệu sạch 100%, được kiểm định từ các nhà cung cấp đạt chuẩn VietGAP.</li>
+        <li>Chế biến theo phương pháp hấp – luộc – nướng ít dầu mỡ, giữ trọn dinh dưỡng.</li>
+        <li>Bao bì sinh học thân thiện môi trường, dễ phân hủy, an toàn khi hâm nóng.</li>
+        <li>Theo dõi dinh dưỡng qua app với mã QR kiểm tra calo, protein, chất xơ, chất béo.</li>
+        <li>Thiết kế hộp gọn nhẹ, cách nhiệt tốt, dễ mang theo đến văn phòng hoặc phòng gym.</li>
+        </ul>
+        
+        
+        <h3>Thông điệp thương hiệu</h3>
+        <blockquote>“Ăn đúng cách – sống đúng chuẩn – thành công đúng hướng.”</blockquote>
+        <p>Hộp cơm dinh dưỡng chuẩn hóa cá nhân không chỉ là một bữa ăn, mà là người bạn đồng hành của sức khỏe hiện đại — giúp bạn chạm đến phiên bản tốt nhất của chính mình, bắt đầu từ từng bữa cơm mỗi ngày.</p>
+        
+        
+        <p><strong>👉 Trải nghiệm ngay hôm nay!</strong><br>Chỉ vài phút nhập thông tin – bạn sẽ có thực đơn AI chuẩn hóa riêng và ưu đãi đầu tiên cực hấp dẫn.</p>
+        </div>
+        </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <div style="min-width:240px">
+        <div style="font-weight:700;color:#fff">Nutribox</div>
+        <div style="color:var(--muted);margin-top:8px">Sứ mệnh: chuẩn hoá dinh dưỡng cho từng cá nhân.</div>
+      </div>
+      <div style="display:flex;gap:28px;min-width:240px">
+        <div>
+          <div style="font-weight:700;color:#fff">Liên kết</div>
+          <div style="margin-top:8px"><a href="#products">Sản phẩm</a><br><a href="#recipes">Công thức</a><br><a href="#blog">Blog</a></div>
+        </div>
+        <div>
+          <div style="font-weight:700;color:#fff">Liên hệ</div>
+          <div style="margin-top:8px;color:var(--muted)">email@healthy.example<br>Hồ Chí Minh, Việt Nam</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:22px;color:#94a3b8;font-size:13px">© <span id="year"></span> Nutribox — Bản quyền</div>
+  </footer>
+
+  <script>
+    // Dữ liệu mẫu: thay bằng API thật hoặc JSON
+    const products = [
+      {id:1,title:'Bột protein hạt dẻ',price:'299,000₫',tag:'Protein',desc:'Protein thực vật, giàu chất xơ.'},
+      {id:2,title:'Snack hạt mix',price:'89,000₫',tag:'Snack',desc:'Hỗn hợp hạt rang muối nhẹ.'},
+      {id:3,title:'Sữa hạt không đường',price:'129,000₫',tag:'Sữa',desc:'Không đường, giàu canxi.'}
+    ];
+
+    const recipes = [
+      {id:1,title:'Salad ức gà salad sốt mè rang',time:'15 phút'},
+      {id:2,title:'Ức gà xào cải bắp',time:'30 phút'},
+      {id:3,title:'sữa chua mix trái cây',time:'5 phút'}
+    ];
+
+    const posts = [
+      {id:1,title:'5 mẹo ăn sáng nhanh & đủ dinh dưỡng',excerpt:'Những mẹo đơn giản để bạn ăn sáng đầy đủ ngay cả khi bận rộn.'},
+      {id:2,title:'Lợi ích của chế độ ăn thực vật',excerpt:'Tổng quan lợi ích sức khỏe và cách bắt đầu.'}
+    ];
+
+    function renderProducts(){
+      const el = document.getElementById('productsGrid');
+      el.innerHTML = '';
+      products.forEach(p=>{
+        const card = document.createElement('div'); card.className='card';
+        card.innerHTML = `
+          <div class="product-img">Hình ảnh</div>
+          <div style="font-weight:700">${p.title}</div>
+          <div style="color:var(--muted);font-size:13px;margin:6px 0">${p.desc}</div>
+          <div class="flex" style="justify-content:space-between">
+            <div style="font-weight:700">${p.price}</div>
+            <button onclick="addToCart(${p.id})" style="padding:8px 12px;border-radius:8px;border:1px solid #e6e6e6">Thêm vào giỏ</button>
+          </div>
+        `;
+        el.appendChild(card);
+      })
+    }
+
+    function renderRecipes(){
+        const el = document.getElementById('recipesGrid');
+        el.innerHTML='';
+        recipes.forEach(r=>{
+        const c = document.createElement('div'); c.className='card';
+        c.innerHTML = `<div style='font-weight:700'>${r.title}</div><div class="product-img">Hình ảnh</div></div><a style="display:inline-block;margin-top:10px" href="#">Đọc tiếp →</a>`;
+        el.appendChild(c);
+        })
+    }
+    
+    
+
+    function addToCart(id){
+      const item = products.find(x=>x.id===id);
+      alert(item.title + ' đã được thêm (ví dụ).');
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('searchBtn').addEventListener('click',()=>{
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+      if(!q) return alert('Nhập từ khóa tìm kiếm');
+      // demo: tìm trong products + recipes + posts
+      const results = [];
+      products.forEach(p=>{ if(p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q)) results.push(p.title) });
+      recipes.forEach(r=>{ if(r.title.toLowerCase().includes(q)) results.push(r.title) });
+      posts.forEach(b=>{ if(b.title.toLowerCase().includes(q) || b.excerpt.toLowerCase().includes(q)) results.push(b.title) });
+      alert('Kết quả tìm kiếm:\n' + (results.length? results.join('\n') : 'Không tìm thấy'));
+    })
+
+    // Khởi tạo
+    renderProducts(); renderRecipes();
+  </script>
+
+  <!--
+    Ghi chú:
+    - Thay hình ảnh "Hình ảnh" bằng <img src="..."> thực tế.
+    - Kết nối API cho products/recipes/posts nếu cần.
+    - Thay đổi style để giống giao diện gốc hơn (font, khoảng cách, màu sắc).
+  -->
+</body>
+</html>
