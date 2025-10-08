@@ -8,20 +8,21 @@
   <style>
     :root{--accent:#2b8aef;--muted:#666}
     *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;margin:0;color:#222;line-height:1.5}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;margin:0;color:#222;line-height:1.5;background-image:url('./img/bg/z7092205234323_8d709b5ecebde13e2541f55858ddb918.jpg')}
     a{color:var(--accent);text-decoration:none}
     header{background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:10}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .container{max-width:100%;margin:0 auto;padding:0 20px}
     .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{display:flex;gap:12px;align-items:center}
     .logo{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),#0a66d1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
     nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
     .cta{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px}
+    h2{color: #FFFFFF;text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7)}
 
     /* Hero */
     .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:56px 0}
-    .hero-left h1{font-size:40px;margin:0 0 12px}
-    .hero-left p{color:var(--muted);margin:0 0 18px}
+    .hero-left h1{font-size:40px;margin:0 0 12px;color: #FFFFFF;text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7)}
+    .hero-left p{color:var(--muted);margin:0 0 18px;color: #FFFFFF;text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7)}
     .search{display:flex;gap:8px}
     .search input{flex:1;padding:12px;border:1px solid #e6e6e6;border-radius:10px}
     .search button{padding:12px 14px;border-radius:10px;border:0;background:var(--accent);color:#fff}
@@ -230,19 +231,19 @@
         id:1,
         title:'Salad ức gà salad sốt mè rang',
         preference:'https://www.bluestone.com.vn/blogs/vao-bep/salad-uc-ga-sot-me-rang',
-        image: ''
+        image: './img/recipes/salad-uc-ga-salad-sot-me-rang.jpg'
       },
       {
         id:2,
         title:'Ức gà xào cải bắp',
         preference:'https://toyenxin.com/blog-1/uc-ga-xao-bap-cai-vi-cb.html',
-        image: ''
+        image: './img/recipes/uc-ga-xao-cai-bap.jpg'
       },
       {
         id:3,
         title:'sữa chua mix trái cây',
         preference:'https://nhathuoclongchau.com.vn/bai-viet/tu-tay-lam-bua-nhe-ngon-tuyet-voi-sua-chua-hy-lap-mix-trai-cay-chuan-healthy-69102.html',
-        image: ''
+        image: './img/recipes/sua-chua-mix-trai-cay.jpg'
       }
     ];
 
@@ -269,7 +270,7 @@
         el.innerHTML='';
         recipes.forEach(r=>{
         const c = document.createElement('div'); c.className='card';
-        c.innerHTML = `<div style='font-weight:700'>${r.title}</div><div class="product-img">Hình ảnh</div></div><a style="display:inline-block;margin-top:10px" href="${r.preference}" target="_blank">Đọc tiếp →</a>`;
+        c.innerHTML = `<div class="product-img"><img src="${r.image}" alt="Sản phẩm"></div><div style='font-weight:700'>${r.title}</div><a style="display:inline-block;margin-top:10px" href="${r.preference}" target="_blank">Đọc tiếp →</a>`;
         el.appendChild(c);
         })
     }
