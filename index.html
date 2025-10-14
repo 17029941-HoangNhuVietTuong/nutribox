@@ -15,6 +15,12 @@
     .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{display:flex;gap:12px;align-items:center}
     .logo{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),#0a66d1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+        .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
     nav ul{display:flex;gap:18px;align-items:center;margin:0;padding:0;list-style:none}
     .cta{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px}
     h2{color: #FFFFFF;text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7)}
@@ -32,6 +38,7 @@
 
     /* Sections */
     section{padding:40px 0}
+    section h2{text-align: center;}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .card{background:#fff;border:1px solid #f0f0f0;border-radius:12px;padding:16px}
     .product-img {
@@ -49,6 +56,248 @@
       display: block;
     }
     .flex{display:flex;gap:12px;align-items:center}
+    
+    .order-section {
+        padding: 40px 20px;
+        text-align: center;
+        background: #ffffff;
+    }
+    :root {
+        --primary-color: #e53935; /* Màu đỏ cho gạch chân và điểm nhấn */
+        --text-color: #333;
+        --light-bg: #f5f5f5;
+        --card-bg: #f0f0f0;
+        --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .step-icon {
+        width: 60px; /* Kích thước icon */
+        height: 60px;
+        margin-bottom: 20px;
+        /* Trong thực tế, đây là nơi bạn sẽ dùng SVG hoặc Font Icon */
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: contain;
+        /* Đây là các placeholder icon, bạn cần thay bằng hình ảnh thực tế (SVG/PNG) */
+    }
+    .icon-user { /* Icon: Chọn Gói Ăn */
+          /* Giả lập icon list/tick */
+        border: 2px solid var(--text-color);
+        border-radius: 5px;
+        position: relative;
+    }
+
+    .icon-user::before {
+        content: '👤';
+        font-size: 30px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .icon-select { /* Icon: Chọn Gói Ăn */
+          /* Giả lập icon list/tick */
+        border: 2px solid var(--text-color);
+        border-radius: 5px;
+        position: relative;
+    }
+
+    .icon-select::before {
+        content: '📋';
+        font-size: 30px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .icon-cook { /* Icon: Fitfood nấu */
+          /* Giả lập icon nồi/bát */
+        border: 2px solid var(--text-color);
+        border-radius: 50%;
+        position: relative;
+    }
+    .icon-cook::before {
+        content: '🍲';
+        font-size: 30px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .icon-delivery { /* Icon: Giao hàng */
+        /* Giả lập icon xe tải */
+        border: 2px solid var(--text-color);
+        border-radius: 50%;
+        position: relative;
+    }
+    .icon-delivery::before {
+        content: '🚚';
+        font-size: 30px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .icon-eat { /* Icon: Thưởng thức */
+        /* Giả lập icon lò vi sóng/lò nướng */
+        border: 2px solid var(--text-color);
+        border-radius: 5px;
+        position: relative;
+    }
+    .icon-eat::before {
+        content: '📺'; /* Dùng tạm icon gần giống lò vi sóng */
+        font-size: 30px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .steps-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+        gap: 20px; /* Khoảng cách giữa các bước */
+    }
+    .step-card {
+        background-color: var(--card-bg);
+        border-radius: 8px;
+        padding: 30px;
+        width: 290px; /* Chiều rộng cố định của thẻ */
+        box-shadow: var(--box-shadow);
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .step-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+    .step-card h3 {
+        font-size: 1.1em;
+        font-weight: bold;
+        margin: 0 0 10px 0;
+        color: var(--text-color);
+    }
+
+    .step-card p {
+        font-size: 0.9em;
+        line-height: 1.5;
+        color: #666;
+        margin: 0;
+    }
+
+    /*
+      * Media Query cho thiết bị nhỏ hơn
+    */
+    @media (max-width: 1100px) {
+        .steps-container {
+            gap: 15px;
+        }
+        .step-card {
+            width: 40%; /* 2 thẻ/hàng trên màn hình tablet */
+        }
+    }
+
+    @media (max-width: 650px) {
+        .step-card {
+            width: 80%; /* 1 thẻ/hàng trên màn hình di động */
+        }
+    }
+
+    .hidden-form {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      z-index: 100;
+      width: 90%;
+      max-width: 450px;
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none; /* 🔥 disables clicks when hidden */
+    }
+
+    .hidden-form.active {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+      pointer-events: auto; /* 🔥 re-enables clicks when visible */
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 90;
+      pointer-events: none; /* 🔥 prevent blocking clicks when hidden */
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto; /* enable when visible */
+    }
+
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    select, input, textarea {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      width: 100%;
+    }
+
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #888;
+    }
+
+    .close-btn:hover {
+      color: #000;
+    }
+
+
+
 
     /* Blog */
     .blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
@@ -73,7 +322,7 @@
   <header>
     <div class="container nav">
       <div class="brand">
-        <div class="logo">NU</div>
+        <div class="logo"><img src="img/logos/ec2fafef0fe682b8dbf7.jpg"></div>
         <div>
           <div style="font-weight:700">Nutribox</div>
           <div style="font-size:12px;color:var(--muted)">Thực phẩm & Công thức</div>
@@ -83,6 +332,7 @@
         <ul>
           <li><a href="#products">Sản phẩm</a></li>
           <li><a href="#recipes">Công thức</a></li>
+          <li><a href="#orders">Đặt hàng</a></li>
           <li><a href="#blog">Blog</a></li>
           <li><a class="cta" href="#contact">Liên hệ</a></li>
         </ul>
@@ -132,17 +382,98 @@
 
     <section id="products">
       <h2>Sản phẩm nổi bật</h2>
-      <div class="grid" id="productsGrid">
+      <div class="steps-container" id="productsGrid">
         <!-- JS sẽ chèn sản phẩm -->
       </div>
     </section>
 
     <section id="recipes">
       <h2>Công thức phổ biến</h2>
-      <div class="grid" id="recipesGrid">
+      <div class="steps-container" id="recipesGrid">
         <!-- JS sẽ chèn công thức -->
       </div>
     </section>
+
+    <section id="orders">
+    <h2>Cách đặt hàng</h2>
+    <div class="steps-container">
+        <div class="step-card" onclick="userForm()">
+            <div class="step-icon icon-user"></div>
+            <h3>Điền thông tin</h3>
+            <p>Hãy cung cấp thông tin của bạn</p>
+        </div>
+        <div id="overlay" class="overlay" onclick="userForm()"></div>
+
+        <div id="form-container" class="hidden-form">
+          <button class="close-btn" onclick="userForm()">×</button>
+          <h2 style="color: #0f1724;">Thông tin khách hàng</h2>
+          <form onsubmit="handleSubmit(event)">
+            <div>
+              <label for="gender">Giới tính:</label>
+              <select id="gender" required>
+                <option value="">-- Chọn giới tính --</option>
+                <option value="Nam">Nam</option>
+                <option value="Nữ">Nữ</option>
+                <option value="Khác">Khác</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="age">Độ tuổi:</label>
+              <input type="number" id="age" min="10" max="100" placeholder="Nhập tuổi..." required>
+            </div>
+
+            <div>
+              <label for="weight">Cân nặng (kg):</label>
+              <input type="number" id="weight" min="20" max="200" placeholder="Ví dụ: 60" required>
+            </div>
+
+            <div>
+              <label for="height">Chiều cao (cm):</label>
+              <input type="number" id="height" min="100" max="250" placeholder="Ví dụ: 170" required>
+            </div>
+
+            <div>
+              <label for="preferences">Sở thích ăn uống:</label>
+              <textarea id="preferences" rows="2" placeholder="Ví dụ: thích đồ cay, ăn chay, thích hải sản..." required></textarea>
+            </div>
+
+            <div>
+              <label for="goal">Mục tiêu hướng đến:</label>
+              <textarea id="goal" rows="2" placeholder="Ví dụ: giảm cân, tăng cơ, duy trì sức khỏe..." required></textarea>
+            </div>
+
+            <button type="submit">Gửi thông tin</button>
+          </form>
+        </div>
+
+
+
+        <div class="step-card">
+            <div class="step-icon icon-select"></div>
+            <h3>Chọn Gói Ăn</h3>
+            <p>Chọn gói ăn phù hợp với nhu cầu của bạn và điền đầy đủ thông tin giao hàng</p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-icon icon-cook"></div>
+            <h3>Fitfood nấu</h3>
+            <p>Chúng tôi lựa chọn những nguyên liệu tốt nhất và nấu trong bếp công nghiệp hiện đại</p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-icon icon-delivery"></div>
+            <h3>Giao hàng</h3>
+            <p>Đội ngũ giao hàng của Fitfood sẽ giao tận nơi các phần ăn cho bạn mỗi ngày</p>
+        </div>
+
+        <div class="step-card">
+            <div class="step-icon icon-eat"></div>
+            <h3>Thưởng thức</h3>
+            <p>Không cần suy nghĩ, shopping hay nấu nướng dầu mỡ, chỉ cần hâm và thưởng thức!</p>
+        </div>
+    </div>
+</section>
 
     <section id="blog">
         <h2>Blog / Bài viết</h2>
@@ -170,6 +501,15 @@
         <li>Thiết kế hộp gọn nhẹ, cách nhiệt tốt, dễ mang theo đến văn phòng hoặc phòng gym.</li>
         </ul>
         
+
+        <h3>Mục tiêu</h3>
+        <p>Xây dựng và vận  hành  “Hộp cơm dinh dưỡng chuẩn hóa cá nhân” tại Huế, đảm bảo an  toàn -nhanh chóng- tiện lợi.</p>
+        <p>Đồng thời  tạo thói quen chú ý chăm sóc sức khỏe cá nhân và thúc đẩy lối sống ăn uống lành mạnh, hiện đại trong cộng đồng.</p>
+
+
+        <h3>Đối tác</h3>
+        <p>Nhà cung cấp nguyên vật liệu: hộ nông dân, công ty nông sản hữu cơ Quế Lâm</p>
+
         
         <h3>Thông điệp thương hiệu</h3>
         <blockquote>“Ăn đúng cách – sống đúng chuẩn – thành công đúng hướng.”</blockquote>
@@ -190,11 +530,11 @@
       <div style="display:flex;gap:28px;min-width:240px">
         <div>
           <div style="font-weight:700;color:#fff">Liên kết</div>
-          <div style="margin-top:8px"><a href="#products">Sản phẩm</a><br><a href="#recipes">Công thức</a><br><a href="#blog">Blog</a></div>
+          <div style="margin-top:8px"><a href="#products">Sản phẩm</a><br><a href="#recipes">Công thức</a><br><a href="#orders">Đặt hàng</a><br><a href="#blog">Blog</a></div>
         </div>
         <div>
           <div style="font-weight:700;color:#fff">Liên hệ</div>
-          <div style="margin-top:8px;color:var(--muted)">email@healthy.example<br>Hồ Chí Minh, Việt Nam</div>
+          <div style="margin-top:8px;color:var(--muted)">Email: nguyenthithuhafgh@ gmail.com<br>SDT: 0338353912</div>
         </div>
       </div>
     </div>
@@ -207,22 +547,37 @@
       {
         id:1,
         title:'Cơm gạo lứt cá hồi',
-        price:'299,000₫',
         desc:'Bổ sung đạm, omega-3, chất xơ và vitamin.',
         image: './img/products/com-ca-hoi-trung-cuon.jpg'
       },
       {
         id:2,title:'Cơm gà nướng rau xanh',
-        price:'89,000₫',
         desc:'Giàu đạm, chất xơ, vitamin và khoáng.',
         image: './img/products/com-ga-nuong-rau-xanh.jpg'
       },
       {
         id:3,
         title:'Salad cá hồi bơ trứng cuộn',
-        price:'129,000₫',
         desc:'Giàu đạm, chất béo tốt, vitamin và chất xơ.',
         image: './img/products/com-gao-lut-ca-hoi.jpg'
+      },
+      {
+        id:4,
+        title:'Combo: Thịt bò xào rau củ & trứng cuộn',
+        desc:'Cân bằng dinh dưỡng, giàu chất xơ và đạm, giúp bổ sung năng lượng.',
+        image: './img/products/combo-buoi-trua.jpg'
+      },
+      {
+        id:5,
+        title:'Combo: Cơm cuộn & gỏi cuốn tôm',
+        desc:'Cân bằng đạm – tinh bột – rau quả.',
+        image: './img/products/combo-buoi-sang.jpg'
+      },
+      {
+        id:6,
+        title:'Combo: Cơm nắm gà teriyaki & trứng cuộn rau xanh',
+        desc:'Giàu protein, vitamin và khoáng chất; vị đậm đà.',
+        image: './img/products/combo-buoi-toi.jpg'
       }
     ];
 
@@ -251,13 +606,12 @@
       const el = document.getElementById('productsGrid');
       el.innerHTML = '';
       products.forEach(p=>{
-        const card = document.createElement('div'); card.className='card';
+        const card = document.createElement('div'); card.className='step-card';
         card.innerHTML = `
           <div class="product-img"><img src="${p.image}" alt="Sản phẩm"></div>
           <div style="font-weight:700">${p.title}</div>
           <div style="color:var(--muted);font-size:13px;margin:6px 0">${p.desc}</div>
-          <div class="flex" style="justify-content:space-between">
-            <div style="font-weight:700">${p.price}</div>
+          <div class="flex" style="justify-content:center">
             <button onclick="addToCart(${p.id})" style="padding:8px 12px;border-radius:8px;border:1px solid #e6e6e6">Thêm vào giỏ</button>
           </div>
         `;
@@ -269,7 +623,7 @@
         const el = document.getElementById('recipesGrid');
         el.innerHTML='';
         recipes.forEach(r=>{
-        const c = document.createElement('div'); c.className='card';
+        const c = document.createElement('div'); c.className='step-card';
         c.innerHTML = `<div class="product-img"><img src="${r.image}" alt="Sản phẩm"></div><div style='font-weight:700'>${r.title}</div><a style="display:inline-block;margin-top:10px" href="${r.preference}" target="_blank">Đọc tiếp →</a>`;
         el.appendChild(c);
         })
@@ -293,9 +647,44 @@
       posts.forEach(b=>{ if(b.title.toLowerCase().includes(q) || b.excerpt.toLowerCase().includes(q)) results.push(b.title) });
       alert('Kết quả tìm kiếm:\n' + (results.length? results.join('\n') : 'Không tìm thấy'));
     })
+    
 
     // Khởi tạo
     renderProducts(); renderRecipes();
+
+    function userForm() {
+      const form = document.getElementById('form-container');
+      const overlay = document.getElementById('overlay');
+      form.classList.toggle('active');
+      overlay.classList.toggle('active');
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const gender = document.getElementById('gender').value;
+      const age = document.getElementById('age').value;
+      const weight = document.getElementById('weight').value;
+      const height = document.getElementById('height').value;
+      const preferences = document.getElementById('preferences').value;
+      const goal = document.getElementById('goal').value;
+
+      const message = `
+Giới tính: ${gender}
+Độ tuổi: ${age}
+Cân nặng: ${weight} kg
+Chiều cao: ${height} cm
+Sở thích ăn uống: ${preferences}
+Mục tiêu hướng đến: ${goal}
+`;
+
+      alert("Thông tin bạn đã nhập:\n" + message);
+
+      event.target.reset();
+      userForm(); // Close form after submit
+    }
+
+
   </script>
 </body>
 </html>
